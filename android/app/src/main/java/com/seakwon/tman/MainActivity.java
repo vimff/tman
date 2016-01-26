@@ -1,15 +1,23 @@
 package com.seakwon.tman;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    Spinner mSpinnerWeekdays;
+    TextView mTextViewDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +26,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        mTextViewDate = (TextView) findViewById(R.id.textViewDate);
+        mTextViewDate.setText(new SimpleDateFormat(
+                "yyyy.MM.dd HH:mm:ss", Locale.KOREA).format(new Date()));
+
+        String[] weekdayArray = getResources().getStringArray(R.array.weekdays);
+        ArrayAdapter<String> weekdayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_dropdown_item, weekdayArray);
+        mSpinnerWeekdays = (Spinner) findViewById(R.id.spinnerDays);
+        mSpinnerWeekdays.setAdapter(weekdayAdapter);
+        mSpinnerWeekdays.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
     }
 
     @Override
