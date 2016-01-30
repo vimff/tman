@@ -17,7 +17,8 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     Spinner mSpinnerWeekdays;
-    TextView mTextViewDate;
+    TextView mTextViewAttendanceTime;
+    TextView mTextViewLeavingTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +27,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mTextViewDate = (TextView) findViewById(R.id.textViewDate);
-        mTextViewDate.setText(new SimpleDateFormat(
-                "yyyy.MM.dd HH:mm:ss", Locale.KOREA).format(new Date()));
+        mTextViewAttendanceTime = (TextView) findViewById(R.id.textViewAttendanceTime);
+        mTextViewAttendanceTime.setText(new SimpleDateFormat(
+                "HH:mm:ss", Locale.KOREA).format(new Date()));
 
-        String[] weekdayArray = getResources().getStringArray(R.array.weekdays);
-        ArrayAdapter<String> weekdayAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_dropdown_item, weekdayArray);
-        mSpinnerWeekdays = (Spinner) findViewById(R.id.spinnerDays);
-        mSpinnerWeekdays.setAdapter(weekdayAdapter);
-        mSpinnerWeekdays.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
+        mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
+        mTextViewLeavingTime.setText(new SimpleDateFormat(
+                "HH:mm:ss", Locale.KOREA).format(new Date()));
+//
+//        String[] weekdayArray = getResources().getStringArray(R.array.weekdays);
+//        ArrayAdapter<String> weekdayAdapter = new ArrayAdapter<String>(
+//                this, android.R.layout.simple_spinner_dropdown_item, weekdayArray);
+//        mSpinnerWeekdays = (Spinner) findViewById(R.id.spinnerDays);
+//        mSpinnerWeekdays.setAdapter(weekdayAdapter);
+//        mSpinnerWeekdays.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
     }
 
     @Override

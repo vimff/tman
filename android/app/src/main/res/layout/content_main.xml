@@ -12,85 +12,155 @@
     tools:context="com.seakwon.tman.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:nestedScrollingEnabled="false"
+        android:id="@+id/linearLayoutDays">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/monday"
+            android:textSize="9dp"
+            android:id="@+id/button_mon" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tuesday"
+            android:textSize="9dp"
+            android:id="@+id/button_tues" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/wednesday"
+            android:textSize="9dp"
+            android:id="@+id/button_wed" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/thursday"
+            android:textSize="9dp"
+            android:id="@+id/button_thur" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="9dp"
+            android:text="@string/friday"
+            android:id="@+id/button_fri" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/saturday"
+            android:textSize="9dp"
+            android:id="@+id/button_sat" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/sunday"
+            android:textSize="9dp"
+            android:id="@+id/button_sun" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayoutDays"
+        android:id="@+id/linearLayoutAttendance"
+        android:layout_alignParentStart="true">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/modify"
+            android:id="@+id/buttonModifyAttendanceTime" />
+
+        <TextView
+            android:layout_alignBaseline="@id/buttonModifyAttendanceTime"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="@string/attendance"
+            android:id="@+id/textViewAttendance" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/textViewAttendance"
+            android:layout_alignBaseline="@id/buttonModifyAttendanceTime"
+            android:id="@+id/textViewAttendanceTime" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/buttonModifyAttendanceTime"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/modify"
+            android:id="@+id/buttonModifyLeavingTime" />
+
+        <TextView
+            android:layout_alignBaseline="@id/buttonModifyLeavingTime"
+            android:layout_below="@id/textViewAttendance"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="@string/leaving"
+            android:id="@+id/textViewLeaving" />
+
+        <TextView
+            android:layout_alignBaseline="@id/buttonModifyLeavingTime"
+            android:layout_toRightOf="@id/textViewLeaving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewLeavingTime" />
+
+    </RelativeLayout>
     <!--<LinearLayout-->
         <!--android:orientation="horizontal"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:nestedScrollingEnabled="false">-->
+        <!--android:layout_alignParentStart="true">-->
 
-        <!--<Button-->
-            <!--style="?android:attr/buttonStyleSmall"-->
+        <!--<TextView-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/monday"-->
-            <!--android:id="@+id/button_mon" />-->
+            <!--android:text="New Text"-->
+            <!--android:id="@+id/textViewDate"-->
+            <!--android:layout_weight="2"/>-->
 
-        <!--<Button-->
-            <!--style="?android:attr/buttonStyleSmall"-->
+        <!--<Spinner-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/tuesday"-->
-            <!--android:id="@+id/button_tues" />-->
+            <!--android:id="@+id/spinnerDays"-->
+            <!--android:spinnerMode="dropdown"-->
+            <!--android:layout_weight="1" />-->
 
-        <!--<Button-->
-            <!--style="?android:attr/buttonStyleSmall"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/wednesday"-->
-            <!--android:id="@+id/button_wed" />-->
-
-        <!--<Button-->
-            <!--style="?android:attr/buttonStyleSmall"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/thursday"-->
-            <!--android:id="@+id/button_thur" />-->
-
-        <!--<Button-->
-            <!--style="?android:attr/buttonStyleSmall"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/friday"-->
-            <!--android:id="@+id/button_fri" />-->
-
-        <!--<Button-->
-            <!--style="?android:attr/buttonStyleSmall"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/saturday"-->
-            <!--android:id="@+id/button_sat" />-->
-
-        <!--<Button-->
-            <!--style="?android:attr/buttonStyleSmall"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/sunday"-->
-            <!--android:id="@+id/button_sun" />-->
     <!--</LinearLayout>-->
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textViewDate"
-            android:layout_weight="2"/>
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerDays"
-            android:spinnerMode="dropdown"
-            android:layout_weight="1" />
-
-    </LinearLayout>
 
 </RelativeLayout>
