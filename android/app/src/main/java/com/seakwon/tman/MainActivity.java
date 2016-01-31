@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -16,9 +16,10 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    Spinner mSpinnerWeekdays;
     TextView mTextViewAttendanceTime;
     TextView mTextViewLeavingTime;
+    Button mButtonModifyAttendanceTime;
+    Button mButtonModifyLeavingTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        mTextViewAttendanceTime = (TextView) findViewById(R.id.textViewAttendanceTime);
-        mTextViewAttendanceTime.setText(new SimpleDateFormat(
-                "HH:mm:ss", Locale.KOREA).format(new Date()));
-
-        mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
-        mTextViewLeavingTime.setText(new SimpleDateFormat(
-                "HH:mm:ss", Locale.KOREA).format(new Date()));
-//
-//        String[] weekdayArray = getResources().getStringArray(R.array.weekdays);
-//        ArrayAdapter<String> weekdayAdapter = new ArrayAdapter<String>(
-//                this, android.R.layout.simple_spinner_dropdown_item, weekdayArray);
-//        mSpinnerWeekdays = (Spinner) findViewById(R.id.spinnerDays);
-//        mSpinnerWeekdays.setAdapter(weekdayAdapter);
-//        mSpinnerWeekdays.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_WEEK));
+        initialize();
     }
 
     @Override
@@ -63,5 +50,68 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Set current time to mTextViewAttendanceTime
+     */
+    public void setAttendanceTime() {
+        Date date = new Date();
+        date.setTime(Calendar.getInstance().getTimeInMillis());
+        mTextViewAttendanceTime.setText(new SimpleDateFormat(
+                "HH:mm:ss", Locale.KOREA).format(date));
+    }
+
+    /**
+     * Set date to mTextViewAttendanceTime
+     * @param date
+     */
+    public void setAttendanceTime(Date date) {
+        mTextViewAttendanceTime.setText(new SimpleDateFormat(
+                "HH:mm:ss", Locale.KOREA).format(date));
+    }
+
+    /**
+     * Set current time to mTextViewLeavingTime
+    */
+    public void setLeavingTime() {
+        Date date = new Date();
+        String time = new SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(date.getTime());
+        mTextViewLeavingTime.setText(time);
+    }
+
+    /**
+     * Set date to mTextViewLeavingTime
+     * @param date
+     */
+    public void setLeavingTime(Date date) {
+        mTextViewLeavingTime.setText(new SimpleDateFormat(
+                "HH:mm:ss", Locale.KOREA).format(date));
+    }
+
+    private void initialize() {
+        mTextViewAttendanceTime = (TextView) findViewById(R.id.textViewAttendanceTime);
+        mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
+        mButtonModifyAttendanceTime = (Button) findViewById(R.id.buttonModifyAttendanceTime);
+        mButtonModifyLeavingTime = (Button) findViewById(R.id.buttonModifyLeavingTime);
+
+
+        mButtonModifyAttendanceTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setAttendanceTime();
+            }
+        });
+
+
+        mButtonModifyLeavingTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setLeavingTime();
+            }
+        });
+
+        setAttendanceTime();
+        setLeavingTime();
     }
 }
