@@ -13,4 +13,7 @@
     <string name="leaving">Leaving</string>
 
     <string name="modify">Modify</string>
+
+    <string name="day_hours">Day</string>
+    <string name="week_hours">Week</string>
 </resources>

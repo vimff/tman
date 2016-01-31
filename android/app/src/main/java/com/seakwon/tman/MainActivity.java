@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mTextViewAttendanceTime;
     TextView mTextViewLeavingTime;
+    TextView mTextViewDayStatus;
+    TextView mTextViewWeekStatus;
     Button mButtonModifyAttendanceTime;
     Button mButtonModifyLeavingTime;
 
@@ -80,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
         mTextViewLeavingTime.setText(time);
     }
 
+    public void setDayHours() {
+        mTextViewDayStatus.setText("0 / 8");
+    }
+
+    public void setWeekHours() {
+        mTextViewWeekStatus.setText("0 / 40");
+    }
+
     /**
      * Set date to mTextViewLeavingTime
      * @param date
@@ -94,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
         mButtonModifyAttendanceTime = (Button) findViewById(R.id.buttonModifyAttendanceTime);
         mButtonModifyLeavingTime = (Button) findViewById(R.id.buttonModifyLeavingTime);
+        mTextViewDayStatus = (TextView) findViewById(R.id.textViewDayStatus);
+        mTextViewWeekStatus = (TextView) findViewById(R.id.textViewWeekStatus);
 
 
         mButtonModifyAttendanceTime.setOnClickListener(new View.OnClickListener() {
@@ -113,5 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         setAttendanceTime();
         setLeavingTime();
+        setDayHours();
+        setWeekHours();
     }
 }
