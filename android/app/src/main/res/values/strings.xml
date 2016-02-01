@@ -11,9 +11,12 @@
 
     <string name="attendance">Attendance</string>
     <string name="leaving">Leaving</string>
+    <string name="exception">Exception time</string>
 
     <string name="modify">Modify</string>
 
     <string name="day_hours">Day</string>
     <string name="week_hours">Week</string>
+    <string name="hour">HH</string>
+    <string name="minute">MM</string>
 </resources>

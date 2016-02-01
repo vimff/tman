@@ -6,22 +6,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import junit.framework.Assert;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView mTextViewAttendanceTime;
     TextView mTextViewLeavingTime;
     TextView mTextViewDayStatus;
     TextView mTextViewWeekStatus;
-    Button mButtonModifyAttendanceTime;
-    Button mButtonModifyLeavingTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,29 +98,28 @@ public class MainActivity extends AppCompatActivity {
                 "HH:mm:ss", Locale.KOREA).format(date));
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.buttonModifyAttendanceTime:
+                setAttendanceTime();
+                break;
+            case R.id.buttonModifyLeavingTime:
+                setLeavingTime();
+                break;
+            default:
+                Assert.assertFalse("Should not reached", true);
+        }
+    }
+
     private void initialize() {
         mTextViewAttendanceTime = (TextView) findViewById(R.id.textViewAttendanceTime);
         mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
-        mButtonModifyAttendanceTime = (Button) findViewById(R.id.buttonModifyAttendanceTime);
-        mButtonModifyLeavingTime = (Button) findViewById(R.id.buttonModifyLeavingTime);
         mTextViewDayStatus = (TextView) findViewById(R.id.textViewDayStatus);
         mTextViewWeekStatus = (TextView) findViewById(R.id.textViewWeekStatus);
 
-
-        mButtonModifyAttendanceTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAttendanceTime();
-            }
-        });
-
-
-        mButtonModifyLeavingTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setLeavingTime();
-            }
-        });
+        findViewById(R.id.buttonModifyAttendanceTime).setOnClickListener(this);
+        findViewById(R.id.buttonModifyLeavingTime).setOnClickListener(this);
 
         setAttendanceTime();
         setLeavingTime();

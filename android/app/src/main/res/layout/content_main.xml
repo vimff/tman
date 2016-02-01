@@ -91,7 +91,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayoutDays"
         android:id="@+id/linearLayoutAttendance"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:textAlignment="viewEnd">
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -138,6 +139,53 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewLeavingTime" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:ems="2"
+            android:id="@+id/editTextExceptionTimeMinutes"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/buttonModifyLeavingTime"
+            android:text="0"
+            android:textAlignment="viewEnd" />
+
+        <TextView
+            android:layout_alignBaseline="@id/editTextExceptionTimeMinutes"
+            android:layout_toLeftOf="@id/editTextExceptionTimeMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minute"
+            android:id="@+id/textViewHour"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:ems="2"
+            android:id="@+id/editTextExceptionTimeHours"
+            android:layout_alignBaseline="@+id/editTextExceptionTimeMinutes"
+            android:layout_toLeftOf="@id/textViewHour"
+            android:text="0"
+            android:textAlignment="viewEnd" />
+
+        <TextView
+            android:layout_alignBaseline="@id/editTextExceptionTimeMinutes"
+            android:layout_toLeftOf="@id/editTextExceptionTimeHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hour"
+            android:id="@+id/textViewMinute"/>
+
+        <TextView
+            android:layout_below="@id/buttonModifyLeavingTime"
+            android:layout_alignLeft="@id/textViewLeaving"
+            android:layout_alignBaseline="@id/editTextExceptionTimeMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exception"
+            android:id="@+id/textViewExceptionTime" />
 
     </RelativeLayout>
 
@@ -186,28 +234,4 @@
         </TableRow>
 
     </TableLayout>
-
-    <!--<LinearLayout-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentStart="true">-->
-
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="New Text"-->
-            <!--android:id="@+id/textViewDate"-->
-            <!--android:layout_weight="2"/>-->
-
-        <!--<Spinner-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/spinnerDays"-->
-            <!--android:spinnerMode="dropdown"-->
-            <!--android:layout_weight="1" />-->
-
-    <!--</LinearLayout>-->
-
 </RelativeLayout>
