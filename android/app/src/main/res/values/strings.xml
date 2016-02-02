@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">tman</string>
     <string name="action_settings">Settings</string>
-    <string name="sunday">Sun</string>
-    <string name="monday">Mon</string>
-    <string name="tuesday">Tue</string>
-    <string name="wednesday">Wed</string>
-    <string name="thursday">Thu</string>
-    <string name="friday">Fri</string>
-    <string name="saturday">Sat</string>
+    <!--<string name="sunday">Sun</string>-->
+    <!--<string name="monday">Mon</string>-->
+    <!--<string name="tuesday">Tue</string>-->
+    <!--<string name="wednesday">Wed</string>-->
+    <!--<string name="thursday">Thu</string>-->
+    <!--<string name="friday">Fri</string>-->
+    <!--<string name="saturday">Sat</string>-->
+    <string name="today">Today</string>
 
     <string name="attendance">Attendance</string>
     <string name="leaving">Leaving</string>
@@ -19,4 +20,15 @@
     <string name="week_hours">Week</string>
     <string name="hour">HH</string>
     <string name="minute">MM</string>
+
+    <!--Attendance Status-->
+    <string name="attendance_status">Attendance Status</string>
+    <string name="normal">Normal</string>
+    <string name="full_day_anual_leave">Full Day Anual Leave</string>
+    <string name="half_day_anual_leave">Half Day Anual Leave</string>
+    <string name="gwp">Anual Leave</string>
+    <string name="bussiness_trip">Bussiness Trip</string>
+    <string name="bussiness_leave">Bussiness Leave</string>
+    <string name="educaiton">Attend Education</string>
+
 </resources>

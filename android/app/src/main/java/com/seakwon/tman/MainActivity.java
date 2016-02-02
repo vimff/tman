@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.TextView;
 
 import junit.framework.Assert;
@@ -21,6 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView mTextViewLeavingTime;
     TextView mTextViewDayStatus;
     TextView mTextViewWeekStatus;
+
+    Button mButtonToday;
+
+    CalendarView mCalendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,16 +83,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     */
     public void setLeavingTime() {
         Date date = new Date();
-        String time = new SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(date.getTime());
+        String time = new SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(date);
         mTextViewLeavingTime.setText(time);
-    }
-
-    public void setDayHours() {
-        mTextViewDayStatus.setText("0 / 8");
-    }
-
-    public void setWeekHours() {
-        mTextViewWeekStatus.setText("0 / 40");
     }
 
     /**
@@ -98,6 +96,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "HH:mm:ss", Locale.KOREA).format(date));
     }
 
+    public void setButtonTodayText() {
+        mButtonToday.setText(getResources().getString(R.string.today) + " (" + new SimpleDateFormat(
+                "yyyy-MM-dd", Locale.KOREA).format(new Date()) + ")");
+    }
+
+    public void setDayHours() {
+        mTextViewDayStatus.setText("0 / 8");
+    }
+
+    public void setWeekHours() {
+        mTextViewWeekStatus.setText("0 / 40");
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -107,6 +118,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonModifyLeavingTime:
                 setLeavingTime();
                 break;
+            case R.id.buttonToday:
+                mCalendarView.setDate(new Date().getTime());
+                break;
+            case R.id.calendarView:
+                break;
             default:
                 Assert.assertFalse("Should not reached", true);
         }
@@ -114,16 +130,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initialize() {
         mTextViewAttendanceTime = (TextView) findViewById(R.id.textViewAttendanceTime);
+        setAttendanceTime();
+
         mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
+        setLeavingTime();
+
         mTextViewDayStatus = (TextView) findViewById(R.id.textViewDayStatus);
+        setDayHours();
+
         mTextViewWeekStatus = (TextView) findViewById(R.id.textViewWeekStatus);
+        setWeekHours();
+
+        mButtonToday = (Button) findViewById(R.id.buttonToday);
+        mButtonToday.setOnClickListener(this);
+        setButtonTodayText();
 
         findViewById(R.id.buttonModifyAttendanceTime).setOnClickListener(this);
         findViewById(R.id.buttonModifyLeavingTime).setOnClickListener(this);
 
-        setAttendanceTime();
-        setLeavingTime();
-        setDayHours();
-        setWeekHours();
+        mCalendarView = (CalendarView) findViewById(R.id.calendarView);
+        mCalendarView.setOnClickListener(this);
+        mCalendarView.setDate(new Date().getTime());
     }
 }

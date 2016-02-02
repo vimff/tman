@@ -12,13 +12,28 @@
     tools:context="com.seakwon.tman.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayoutCalendar">
+
+        <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/calendarView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:showWeekNumber="false"
+            android:unfocusedMonthDateColor="#dddddd"
+            android:weekSeparatorLineColor="#d2d2d2" />
+    </RelativeLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/relativeLayoutCalendar"
         android:layout_alignParentStart="true"
-        android:nestedScrollingEnabled="false"
         android:id="@+id/linearLayoutDays">
 
         <Button
@@ -26,63 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/monday"
-            android:textSize="9dp"
-            android:id="@+id/button_mon" />
+            android:id="@+id/buttonToday" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/tuesday"
-            android:textSize="9dp"
-            android:id="@+id/button_tues" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/wednesday"
-            android:textSize="9dp"
-            android:id="@+id/button_wed" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/thursday"
-            android:textSize="9dp"
-            android:id="@+id/button_thur" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="9dp"
-            android:text="@string/friday"
-            android:id="@+id/button_fri" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/saturday"
-            android:textSize="9dp"
-            android:id="@+id/button_sat" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/sunday"
-            android:textSize="9dp"
-            android:id="@+id/button_sun" />
     </LinearLayout>
 
     <RelativeLayout
@@ -90,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayoutDays"
-        android:id="@+id/linearLayoutAttendance"
+        android:id="@+id/relativeLayoutTime"
         android:layout_alignParentStart="true"
         android:textAlignment="viewEnd">
 
@@ -189,6 +149,31 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/relativeLayoutTime"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayoutAttendance">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewAttendanceStatus"
+            android:text="@string/attendance_status" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:entries="@array/attendance_status"
+            android:id="@+id/spinnerAttendanceStatus"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -234,4 +219,5 @@
         </TableRow>
 
     </TableLayout>
+
 </RelativeLayout>
