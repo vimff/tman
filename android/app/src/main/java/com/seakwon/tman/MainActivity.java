@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import junit.framework.Assert;
@@ -21,12 +22,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView mTextViewAttendanceTime;
     TextView mTextViewLeavingTime;
-    TextView mTextViewDayStatus;
-    TextView mTextViewWeekStatus;
 
     Button mButtonToday;
 
     CalendarView mCalendarView;
+
+    ProgressBar mProgressBarDay;
+    ProgressBar mProgressBarWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,14 +103,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "yyyy-MM-dd", Locale.KOREA).format(new Date()) + ")");
     }
 
-    public void setDayHours() {
-        mTextViewDayStatus.setText("0 / 8");
-    }
-
-    public void setWeekHours() {
-        mTextViewWeekStatus.setText("0 / 40");
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -135,11 +129,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
         setLeavingTime();
 
-        mTextViewDayStatus = (TextView) findViewById(R.id.textViewDayStatus);
-        setDayHours();
-
-        mTextViewWeekStatus = (TextView) findViewById(R.id.textViewWeekStatus);
-        setWeekHours();
+        mProgressBarDay = (ProgressBar) findViewById(R.id.progressBarDay);
+        mProgressBarWeek = (ProgressBar) findViewById(R.id.progressBarWeek);
 
         mButtonToday = (Button) findViewById(R.id.buttonToday);
         mButtonToday.setOnClickListener(this);

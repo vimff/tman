@@ -192,11 +192,23 @@
                 android:text="@string/day_hours"
                 android:id="@+id/textViewDayHours" />
 
-            <TextView
+            <ProgressBar
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewDayStatus"
-                android:layout_marginLeft="5dp" />
+                android:id="@+id/progressBarDay"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:background="#dbdbdb"
+                android:max="8"
+                android:progress="3"
+                android:textAlignment="center" />
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/textViewDayStatus"-->
+                <!--android:layout_marginLeft="5dp" />-->
         </TableRow>
 
         <TableRow
@@ -210,12 +222,25 @@
                 android:id="@+id/textViewWeekHours"
                 android:layout_marginTop="5dp" />
 
-            <TextView
+            <ProgressBar
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/progressBarWeek"
+                android:layout_weight="1"
                 android:layout_marginTop="5dp"
-                android:id="@+id/textViewWeekStatus"
-                android:layout_marginLeft="5dp" />
+                android:layout_marginLeft="10dp"
+                android:background="#dbdbdb"
+                android:max="40"
+                android:progress="20"
+                android:textAlignment="center" />
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:id="@+id/textViewWeekStatus"-->
+                <!--android:layout_marginLeft="5dp" />-->
         </TableRow>
 
     </TableLayout>
