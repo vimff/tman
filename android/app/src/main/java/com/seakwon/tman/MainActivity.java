@@ -3,6 +3,7 @@ package com.seakwon.tman;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +20,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     TextView mTextViewAttendanceTime;
     TextView mTextViewLeavingTime;
 
@@ -103,6 +103,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "yyyy-MM-dd", Locale.KOREA).format(new Date()) + ")");
     }
 
+    public void setStatusForSelectedDate(int year, int month, int dayOfMonth) {
+
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -113,9 +117,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setLeavingTime();
                 break;
             case R.id.buttonToday:
-                mCalendarView.setDate(new Date().getTime());
+                Date date = new Date();
+                mCalendarView.setDate(date.getTime());
                 break;
             case R.id.calendarView:
+                Date today = new Date(mCalendarView.getDate());
                 break;
             default:
                 Assert.assertFalse("Should not reached", true);
@@ -141,6 +147,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
         mCalendarView.setOnClickListener(this);
+        mCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                setStatusForSelectedDate(year, month, dayOfMonth);
+            }
+        });
         mCalendarView.setDate(new Date().getTime());
     }
 }

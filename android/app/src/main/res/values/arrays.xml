@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="attendance_status">
+    <string-array name="arr_attendance_status">
         <item>@string/normal</item>
-        <item>@string/full_day_anual_leave</item>
-        <item>@string/half_day_anual_leave</item>
-        <item>@string/gwp</item>
-        <item>@string/bussiness_trip</item>
-        <item>@string/bussiness_leave</item>
-        <item>@string/educaiton</item>
+        <item>@string/full_day_leave</item>
+        <item>@string/half_day_leave</item>
+    </string-array>
+
+    <string-array name="arr_except_hour">
+        <item>@string/zero</item>
+        <item>@string/hour1</item>
+        <item>@string/hour2</item>
+        <item>@string/hour3</item>
+        <item>@string/hour4</item>
+        <item>@string/hour5</item>
+        <item>@string/hour6</item>
+        <item>@string/hour7</item>
+        <item>@string/hour8</item>
+    </string-array>
+
+    <string-array name="arr_except_minute">
+        <item>@string/zero</item>
+        <item>@string/min10</item>
+        <item>@string/min20</item>
+        <item>@string/min30</item>
+        <item>@string/min40</item>
+        <item>@string/min50</item>
     </string-array>
 </resources>

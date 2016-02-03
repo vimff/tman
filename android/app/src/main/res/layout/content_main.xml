@@ -12,27 +12,21 @@
     tools:context="com.seakwon.tman.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <RelativeLayout
+    <CalendarView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayoutCalendar">
-
-        <CalendarView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/calendarView"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:showWeekNumber="false"
-            android:unfocusedMonthDateColor="#dddddd"
-            android:weekSeparatorLineColor="#d2d2d2" />
-    </RelativeLayout>
+        android:layout_height="200dp"
+        android:id="@+id/calendarView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:showWeekNumber="false"
+        android:unfocusedMonthDateColor="#dddddd"
+        android:weekSeparatorLineColor="#d2d2d2" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@id/relativeLayoutCalendar"
+        android:layout_below="@id/calendarView"
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayoutDays">
 
@@ -100,48 +94,44 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewLeavingTime" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:inputType="numberDecimal"
-            android:ems="2"
-            android:id="@+id/editTextExceptionTimeMinutes"
+        <TextView
             android:layout_alignParentRight="true"
             android:layout_below="@id/buttonModifyLeavingTime"
-            android:text="0"
-            android:textAlignment="viewEnd" />
-
-        <TextView
-            android:layout_alignBaseline="@id/editTextExceptionTimeMinutes"
-            android:layout_toLeftOf="@id/editTextExceptionTimeMinutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/minute"
             android:id="@+id/textViewHour"/>
 
-        <EditText
+        <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:inputType="numberDecimal"
-            android:ems="2"
-            android:id="@+id/editTextExceptionTimeHours"
-            android:layout_alignBaseline="@+id/editTextExceptionTimeMinutes"
+            android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/textViewHour"
-            android:text="0"
-            android:textAlignment="viewEnd" />
+            android:layout_alignBaseline="@id/textViewHour"
+            android:entries="@array/arr_except_minute"
+            android:id="@+id/spinnerExceptMinutes"
+            android:layout_marginLeft="10dp" />
 
         <TextView
-            android:layout_alignBaseline="@id/editTextExceptionTimeMinutes"
-            android:layout_toLeftOf="@id/editTextExceptionTimeHours"
+            android:layout_alignBaseline="@id/textViewHour"
+            android:layout_toLeftOf="@id/spinnerExceptMinutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hour"
             android:id="@+id/textViewMinute"/>
 
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/textViewMinute"
+            android:layout_alignBaseline="@id/textViewHour"
+            android:entries="@array/arr_except_hour"
+            android:id="@+id/spinnerExceptHours"
+            android:layout_marginLeft="10dp" />
+
         <TextView
             android:layout_below="@id/buttonModifyLeavingTime"
             android:layout_alignLeft="@id/textViewLeaving"
-            android:layout_alignBaseline="@id/editTextExceptionTimeMinutes"
+            android:layout_alignBaseline="@id/textViewHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/exception"
@@ -168,7 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:entries="@array/attendance_status"
+            android:entries="@array/arr_attendance_status"
             android:id="@+id/spinnerAttendanceStatus"
             android:layout_weight="1"
             android:layout_marginLeft="10dp" />
