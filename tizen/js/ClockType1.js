@@ -1,4 +1,4 @@
-var canvas, context, clockRadius, isAmbientMode;
+zvar canvas, context, clockRadius, isAmbientMode;
 
 window.requestAnimationFrame = window.requestAnimationFrame
 		|| window.webkitRequestAnimationFrame
