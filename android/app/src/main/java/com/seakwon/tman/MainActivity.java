@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ProgressBar mProgressBarDay;
     ProgressBar mProgressBarWeek;
 
+    AttendanceInfo mAttendanceInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,11 +131,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialize() {
+        mAttendanceInfo = new AttendanceInfo(this);
+
         mTextViewAttendanceTime = (TextView) findViewById(R.id.textViewAttendanceTime);
-        setAttendanceTime();
+        mTextViewAttendanceTime.setText(mAttendanceInfo.getAttendanceTimeAsString(new Date()));
 
         mTextViewLeavingTime = (TextView) findViewById(R.id.textViewLeavingTime);
-        setLeavingTime();
+        mTextViewLeavingTime.setText(mAttendanceInfo.getLeavingTimeAsString(new Date()));
 
         mProgressBarDay = (ProgressBar) findViewById(R.id.progressBarDay);
         mProgressBarWeek = (ProgressBar) findViewById(R.id.progressBarWeek);
